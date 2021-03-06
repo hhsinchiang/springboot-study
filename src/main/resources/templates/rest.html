@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="testREST/1001">测试Get</a>
+<BR>
+
+<form action="/testREST" method="post">
+    <input type="submit" value="测试POST">
+</form>
+
+<BR>
+<form action="/testREST" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" value="测试PUT">
+</form>
+
+<BR>
+<form action="/testREST/1" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="测试DELETE">
+</form>
+
+
+</body>
+</html>

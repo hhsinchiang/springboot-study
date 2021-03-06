@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.ShoesMapper">
+
+
+    <!--增加shoe -->
+    <insert id="insertShoe" useGeneratedKeys="true" keyProperty="id">
+        insert into shoes(`name`,`color`,`brand`,`price`) values (
+            #{name},#{color},#{brand},#{price}
+        )
+    </insert>
+
+
+
+    <select id="getShoeById" resultType="com.springboot.bean.Shoes">
+        SELECT * FROM shoes WHERE id=#{id}
+    </select>
+
+    <!--    //获取所有用户信息-->
+    <select id="getAllShoe" resultType="com.springboot.bean.Shoes">
+        select * from shoes
+    </select>
+
+
+    <!--&lt;!&ndash;    //添加用户&ndash;&gt;-->
+<!--    <insert id="addUser" useGeneratedKeys="true" keyProperty="id">-->
+<!--        INSERT INTO user VALUES(null,#{username},#{password},#{age})-->
+<!--    </insert>-->
+
+
+<!--&lt;!&ndash;    //修改用户&ndash;&gt;-->
+<!--    <update id="updateUser">-->
+<!--        UPDATE user SET username = #{username},password = #{password},age = #{age} WHERE id = #{id}-->
+<!--    </update>-->
+
+
+<!--&lt;!&ndash;    //删除用户&ndash;&gt;-->
+
+<!--    <delete id="deleteUser" >-->
+<!--        DELETE FROM user WHERE id = #{id}-->
+<!--    </delete>-->
+
+
+    
+<!--    <resultMap id="bookMap" type="com.mybatis01.demo.bean.User">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="username" property="username"/>-->
+<!--        <result column="password" property="password"/>-->
+<!--        <result column="age" property="age"/>-->
+<!--        <result column="bId" property="book.id"/>-->
+<!--        <result column="bookName" property="book.bookName"/>-->
+
+<!--    </resultMap>-->
+
+
+<!--    <resultMap id="bookMap" type="com.mybatis01.demo.bean.User">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="username" property="username"/>-->
+<!--        <result column="password" property="password"/>-->
+<!--        <result column="age" property="age"/>-->
+<!--&lt;!&ndash;        <result column="bId" property="book.id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <result column="bookName" property="book.bookName"/>&ndash;&gt;-->
+<!--        <association property="book" javaType="com.mybatis01.demo.bean.Book">-->
+<!--            <result column="bId" property="id"/>-->
+<!--            <result column="bookName" property="bookName"/>-->
+<!--        </association>-->
+<!--                </resultMap>-->
+
+
+<!--                <select id="getAllUserAndBook" resultType="com.mybatis01.demo.bean.User" resultMap="bookMap">-->
+<!--                    SELECT * FROM user u LEFT JOIN book b ON u.bId = b.id-->
+<!--                </select>-->
+
+
+    </mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.DogMapper">
+
+
+    <select id="getDogById" resultMap="dogPerson">
+        select p.*,d.id as d_id,d.name as d_name,d.weight
+            from person p,dog d
+                where p.id = d.p_id and d.id = #{id}
+    </select>
+
+    <resultMap id="dogPerson" type="com.springboot.bean.Dog">
+        <id property="id" column="d_id"></id>
+        <result property="name" column="d_name"></result>
+        <result property="weight" column="weight"></result>
+        <association property="person" column="p_id" javaType="com.springboot.bean.Person">
+            <result property="id" column="id"></result>
+            <result property="name" column="name"></result>
+            <result property="address" column="address"></result>
+            <result property="age" column="age"></result>
+
+        </association>
+    </resultMap>
+
+</mapper>
